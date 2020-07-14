@@ -3,9 +3,10 @@ import './App.css';
 
 function TodoList(props) {
   return (
-    <div>
+    <div className="todoList">
       {props.todos.map(el => <li>{el.name}</li>)}
     </div>
+
   );
 }
 

@@ -4,22 +4,22 @@ import './App.css';
 function CreateForm(props) {
   const [task, setTask] = useState('')
 
-  const onChangeTask = () => {
-    console.log(task)
-    props.onChangeTask(task)
+  const addTask = () => {
+    props.onCreateTask(task)
     setTask('')
   }
 
   return (
-    <div>
+    <div className="createForm">
       <form>
         <div className="form-group">
           <label htmlFor="exampleInputEmail1">Task</label>
-          <input type="text" className="form-control" value={task} onChange={onChangeTask}/>
+          <input type="text" className="form-control" value={task} onChange={e => setTask(e.target.value)}/>
           <button type="submit" className="btn btn-primary">Submit</button>
-          <button type="button" className="btn btn-secondary">Cancel</button>
+          <button type="button" className="btn btn-secondary" onClick={addTask}>Cancel</button>
         </div>
       </form>
+
     </div>
   );
 }
