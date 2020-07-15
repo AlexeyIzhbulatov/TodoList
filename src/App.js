@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import './App.css';
-import { v4 as uuidv4 } from 'uuid';
+import {v4 as uuidv4} from 'uuid';
 import TodoList from "./TodoList";
 import CreateForm from "./CreateForm";
 
@@ -15,7 +15,7 @@ function App() {
     const onCreateTask = (task) => {
         console.log(task + 'App')
         const updateOnCreateTask = [...todos];
-        updateOnCreateTask.push({id:uuidv4(), name: task, done: false})
+        updateOnCreateTask.push({id: uuidv4(), name: task, done: false})
         setTodos(updateOnCreateTask)
     }
 
@@ -27,20 +27,20 @@ function App() {
     }
 
     const onDoneTask = (id) => {
-     const updateDoneTask = todos.map(el => {
-         if(el.id === id) return {...el, done : !el.done}
-         else return el;
-     });
-     setTodos(updateDoneTask)
+        const updateDoneTask = todos.map(el => {
+            if (el.id === id) return {...el, done: !el.done}
+            else return el;
+        });
+        setTodos(updateDoneTask)
     }
 
 
-  return (
-    <div className="App">
-<TodoList todos={todos} onDeleteTask={onDeleteTask} onDoneTask={onDoneTask}/>
-<CreateForm onCreateTask={onCreateTask}/>
-    </div>
-  );
+    return (
+        <div className="App">
+            <TodoList todos={todos} onDeleteTask={onDeleteTask} onDoneTask={onDoneTask}/>
+            <CreateForm onCreateTask={onCreateTask}/>
+        </div>
+    );
 }
 
 export default App;

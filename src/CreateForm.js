@@ -11,9 +11,9 @@ function CreateForm(props) {
   }
 
   return (
-    <div className="createForm">
-      <input type="text" value={task} onChange={e => setTask(e.target.value)}/>
-      <button onClick={addTask} disabled={task.trim() === ''}>Add</button>
+      <div>
+          <input className="form-control" type="text" placeholder="What do you mean ?"  value={task} onChange={e => setTask(e.target.value)}/>
+            <button type="submit" className="btn btn-primary" onClick={addTask} disabled={task.trim() === ''}>Add</button>
     </div>
   );
 }
