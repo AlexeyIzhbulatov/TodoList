@@ -19,3 +19,13 @@ function TodoList(props) {
 }
 
 export default TodoList;
+
+return (
+    <div className="App">
+        <TodoList todos={todos} onDeleteTask={onDeleteTask}/>
+        <CreateForm onCreateTask={onCreateTask}/>
+    </div>
+);
+}
+
+export default App;
