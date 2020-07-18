@@ -38,3 +38,13 @@ function App() {
 }
 
 export default App;
+
+return (
+    <div className="App">
+        <TodoList todos={todos} onDeleteTask={onDeleteTask}/>
+        <CreateForm onCreateTask={onCreateTask}/>
+    </div>
+);
+}
+
+export default App;
