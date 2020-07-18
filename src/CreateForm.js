@@ -2,18 +2,21 @@ import React, {useState} from 'react';
 import './App.css';
 
 function CreateForm(props) {
- const [task, setTask] = useState('')
+const [task, setTask] = useState('')
 
   const addTask = () => {
-   console.log(task + 'Form')
-    props.onCreateTask(task);
-   setTask('')
+  props.onCreateTask(task)
+    setTask('')
   }
 
   return (
       <div>
-          <input className="form-control" type="text" placeholder="What do you mean ?"  value={task} onChange={e => setTask(e.target.value)}/>
-            <button type="submit" className="btn btn-primary" onClick={addTask} disabled={task.trim() === ''}>Add</button>
+        <form>
+          <div className="form-group">
+            <input type="text" className="form-control" value={task} onChange={e => setTask(e.target.value)}/>
+          </div>
+          <button type="button" className="btn btn-primary" onClick={addTask}>Add</button>
+        </form>
     </div>
   );
 }
