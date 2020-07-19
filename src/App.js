@@ -22,16 +22,21 @@ function App() {
     }
 
     const onDeleteTask = (id) => {
-        const updateDeleteTask = (el => {
-            if(el.id === id) return {...el, el.id !== id}
+       const updateDelete = todos.filter(el => el.id !== id)
+        setTodos(updateDelete)
+    }
+
+    const onDoneTask = (id) => {
+        const updateDoneTask = todos.map(el => {
+            if(el.id === id) return {...el, done: !el.done}
             else return el;
         })
-        setTodos(updateDeleteTask)
+        setTodos(updateDoneTask)
     }
 
     return (
         <div className="App">
-            <TodoList todos={todos} onDeleteTask={onDeleteTask}/>
+            <TodoList todos={todos} onDeleteTask={onDeleteTask} onDoneTask={onDoneTask}/>
             <CreateForm onCreateTask={onCreateTask}/>
         </div>
     );
@@ -39,12 +44,3 @@ function App() {
 
 export default App;
 
-return (
-    <div className="App">
-        <TodoList todos={todos} onDeleteTask={onDeleteTask}/>
-        <CreateForm onCreateTask={onCreateTask}/>
-    </div>
-);
-}
-
-export default App;

@@ -15,7 +15,7 @@ const [task, setTask] = useState('')
           <div className="form-group">
             <input type="text" className="form-control" value={task} onChange={e => setTask(e.target.value)}/>
           </div>
-          <button type="button" className="btn btn-primary" onClick={addTask}>Add</button>
+          <button type="button" className="btn btn-primary" onClick={addTask} disabled={task.trim() === ''}>Add</button>
         </form>
     </div>
   );
