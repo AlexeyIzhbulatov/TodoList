@@ -2,12 +2,15 @@ import React, {useState} from 'react';
 import './App.css';
 
 function CreateForm(props) {
-const [task, setTask] = useState('')
+
+  const [task, setTask] = useState('')
+
 
   const addTask = () => {
-  props.onCreateTask(task)
+    props.onCreateTask(task)
     setTask('')
   }
+
 
   return (
       <div>
